@@ -56,8 +56,26 @@
 
     myImage.setAttribute('src', 'static/coffee_beans.jpg');
 
-    function makeCoffee() {
+    function showCoffeeBeans() {
+        myImage.setAttribute('src', 'static/coffee_beans.jpg');
+    }
+
+    function showCoffeeMachine() {
+        myImage.setAttribute('src', 'static/coffee_machine.jpg');
+    }
+
+    function showCoffeeMug() {
         myImage.setAttribute('src', 'static/coffee_mug.jpg');
+    }
+
+    // when user clicks image, show machine immediately. 
+    // after 1.5 sec, show coffee mug
+    // after another 2.5 sec (1.5 + 2.5 = 4), go back to beans. exit function
+    
+    function makeCoffee() {
+        showCoffeeMachine();
+        setTimeout(showCoffeeMug, 1500);
+        setTimeout(showCoffeeBeans, 4000);
     }
 
     myImage.addEventListener('click', makeCoffee);
